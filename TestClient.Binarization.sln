@@ -5,16 +5,22 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient.Binarization", "TestClient.Binarization.csproj", "{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dok.image.binarization.win", "..\..\..\..\image-binarization\dok.image.binarization.win\dok.image.binarization.win\dok.image.binarization.win.csproj", "{413BAFE8-5E1E-4B7D-9215-9C8A182924E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Debug|x64.ActiveCfg = Debug|x64
+		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Debug|x64.Build.0 = Debug|x64
+		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Release|x64.ActiveCfg = Release|Any CPU
+		{152BBAA9-B129-49AA-9606-B4CD3BDE1C8F}.Release|x64.Build.0 = Release|Any CPU
+		{413BAFE8-5E1E-4B7D-9215-9C8A182924E3}.Debug|x64.ActiveCfg = Debug|x64
+		{413BAFE8-5E1E-4B7D-9215-9C8A182924E3}.Debug|x64.Build.0 = Debug|x64
+		{413BAFE8-5E1E-4B7D-9215-9C8A182924E3}.Release|x64.ActiveCfg = Release|x64
+		{413BAFE8-5E1E-4B7D-9215-9C8A182924E3}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
