@@ -39,6 +39,7 @@ namespace TestClient.Binarization
             }
 
             var folder = dlg.FileName;
+            //App.Default.ImageFolder = folder;
             (DataContext as BinarizationClientViewModel).SetImageFolder(folder);
         }
     }

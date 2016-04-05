@@ -19,9 +19,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ImagePaths}" x:Name="listBox" HorizontalAlignment="Left" Height="140" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
-        <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" Source="{Binding SelectedItem, ElementName=listBox, Converter={StaticResource PathToBitmapConverter}}" HorizontalAlignment="Left" Height="139" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
-        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" HorizontalAlignment="Left" Height="139" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
-        <Button x:Name="buttonSelectFolder" Content="Select Image Folder" HorizontalAlignment="Left" Margin="102,70,0,0" VerticalAlignment="Top" Width="75" Click="SelectFolder"/>
+        <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ImagePaths}" x:Name="listBox" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Width="Auto"/>
+        <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" Source="{Binding SelectedItem, ElementName=listBox, Converter={StaticResource PathToBitmapConverter}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" />
+        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch"/>
+        <Button x:Name="buttonSelectFolder" Content="Select Image Folder" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0" Width="Auto" Click="SelectFolder"/>
     </Grid>
 </Window>
