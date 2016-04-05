@@ -21,11 +21,11 @@ namespace TestClient.Binarization
             var dlg = new CommonOpenFileDialog();
             dlg.Title = "Select folder with images to process";
             dlg.IsFolderPicker = true;
-            dlg.InitialDirectory = Directory.GetCurrentDirectory();
+            dlg.InitialDirectory = AppSettings.Default.ImagesFolder;
 
             dlg.AddToMostRecentlyUsedList = false;
             dlg.AllowNonFileSystemItems = false;
-            dlg.DefaultDirectory = Directory.GetCurrentDirectory();
+            dlg.DefaultDirectory = AppSettings.Default.ImagesFolder;
             dlg.EnsureFileExists = true;
             dlg.EnsurePathExists = true;
             dlg.EnsureReadOnly = false;
