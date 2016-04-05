@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestClient.Binarization"
-        xmlns:attachedProps="clr-namespace:TestClient.Binarization.AttachedProperties"
+        xmlns:converters="clr-namespace:TestClient.Binarization.ValueConverters"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <converters:PathToBitmapImageConverter x:Key="PathToBitmapConverter"/>
+    </Window.Resources>
      <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -17,7 +20,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ImagePaths}" x:Name="listBox" HorizontalAlignment="Left" Height="140" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
-        <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" HorizontalAlignment="Left" Height="139" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
+        <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" Source="{Binding SelectedItem, ElementName=listBox, Converter={StaticResource PathToBitmapConverter}}" HorizontalAlignment="Left" Height="139" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
         <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" HorizontalAlignment="Left" Height="139" Margin="10,10,0,0" VerticalAlignment="Top" Width="238"/>
         <Button x:Name="buttonSelectFolder" Content="Select Image Folder" HorizontalAlignment="Left" Margin="102,70,0,0" VerticalAlignment="Top" Width="75" Click="SelectFolder"/>
     </Grid>

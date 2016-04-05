@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
-namespace dok.wpf.exploration.ValueConverters
+namespace TestClient.Binarization.ValueConverters
 {
     public class PathToBitmapImageConverter : IValueConverter
     {
