@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.IO;
+using TestClient.Binarization.ViewModels;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace TestClient.Binarization
 {
@@ -23,6 +13,33 @@ namespace TestClient.Binarization
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new BinarizationClientViewModel(".");
+        }
+        
+        public void SelectFolder(object sender, RoutedEventArgs e)
+        {
+            var dlg = new CommonOpenFileDialog();
+            dlg.Title = "Select folder with images to process";
+            dlg.IsFolderPicker = true;
+            dlg.InitialDirectory = Directory.GetCurrentDirectory();
+
+            dlg.AddToMostRecentlyUsedList = false;
+            dlg.AllowNonFileSystemItems = false;
+            dlg.DefaultDirectory = Directory.GetCurrentDirectory();
+            dlg.EnsureFileExists = true;
+            dlg.EnsurePathExists = true;
+            dlg.EnsureReadOnly = false;
+            dlg.EnsureValidNames = true;
+            dlg.Multiselect = false;
+            dlg.ShowPlacesList = true;
+
+            if (dlg.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+
+            var folder = dlg.FileName;
+            (DataContext as BinarizationClientViewModel).SetImageFolder(folder);
         }
     }
 }
