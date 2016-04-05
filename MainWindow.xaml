@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TestClient.Binarization"
         xmlns:converters="clr-namespace:TestClient.Binarization.ValueConverters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        Closing="Window_Closing" >
     <Window.Resources>
         <converters:PathToBitmapImageConverter x:Key="PathToBitmapConverter"/>
     </Window.Resources>

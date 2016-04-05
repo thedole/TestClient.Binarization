@@ -13,7 +13,7 @@ namespace TestClient.Binarization
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new BinarizationClientViewModel(".");
+            DataContext = new BinarizationClientViewModel(AppSettings.Default.ImagesFolder);
         }
         
         public void SelectFolder(object sender, RoutedEventArgs e)
@@ -39,8 +39,13 @@ namespace TestClient.Binarization
             }
 
             var folder = dlg.FileName;
-            //App.Default.ImageFolder = folder;
+            AppSettings.Default.ImagesFolder = folder;
             (DataContext as BinarizationClientViewModel).SetImageFolder(folder);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AppSettings.Default.Save();
         }
     }
 }
