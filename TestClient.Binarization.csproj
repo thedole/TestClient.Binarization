@@ -114,6 +114,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>AppSettings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\ColorBitmapToBinaryBitmapConverter.cs" />
     <Compile Include="ValueConverters\PathToBitmapImageConverter.cs" />
     <Compile Include="ViewModels\BinarizationClientViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -165,6 +166,7 @@
     <ProjectReference Include="..\..\..\..\image-binarization\dok.image.binarization.win\dok.image.binarization.win\dok.image.binarization.win.csproj">
       <Project>{413bafe8-5e1e-4b7d-9215-9c8a182924e3}</Project>
       <Name>dok.image.binarization.win</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

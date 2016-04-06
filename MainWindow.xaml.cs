@@ -2,6 +2,9 @@
 using System.IO;
 using TestClient.Binarization.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
+using System.Windows.Media.Imaging;
+using dok.image.binarization.win;
 
 namespace TestClient.Binarization
 {
@@ -46,6 +49,11 @@ namespace TestClient.Binarization
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             AppSettings.Default.Save();
+        }
+
+        private void buttonSaveOutput_Click(object sender, RoutedEventArgs e)
+        {
+            (imageOutput.Source as BitmapSource).SaveToDisk();
         }
     }
 }

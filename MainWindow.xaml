@@ -10,6 +10,7 @@
         Closing="Window_Closing" >
     <Window.Resources>
         <converters:PathToBitmapImageConverter x:Key="PathToBitmapConverter"/>
+        <converters:ColorBitmapToBinaryBitmapConverter x:Key="ColorToBinary"/>
     </Window.Resources>
      <Grid>
         <Grid.ColumnDefinitions>
@@ -22,7 +23,19 @@
         </Grid.RowDefinitions>
         <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ImagePaths}" x:Name="listBox" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Width="Auto"/>
         <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" Source="{Binding SelectedItem, ElementName=listBox, Converter={StaticResource PathToBitmapConverter}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" />
-        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch"/>
-        <Button x:Name="buttonSelectFolder" Content="Select Image Folder" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0" Width="Auto" Click="SelectFolder"/>
+        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" Source="{Binding Source, ElementName=imageInput, Converter={StaticResource ColorToBinary}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch"/>
+        <Grid Grid.Column="0" Grid.Row="0" Height="100" Margin="10,10,10,10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="buttonSelectFolder" Content="Select Image Folder" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="Auto" Click="SelectFolder"/>
+            <Button Grid.Row="1" x:Name="buttonSaveOutput" Content="Save Output" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="Auto" Click="buttonSaveOutput_Click"/>
+        </Grid>
     </Grid>
 </Window>
