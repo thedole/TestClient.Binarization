@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using dok.image.binarization.win;
-using OpenCvSharp.CPlusPlus;
-using OpenCvSharp.Extensions;
 
 namespace TestClient.Binarization.ValueConverters
 {
@@ -13,17 +10,19 @@ namespace TestClient.Binarization.ValueConverters
     {        
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var sourceBitmap = value as BitmapImage;
+            var sourceBitmap = value as BitmapSource;
             if (sourceBitmap == null)
             {
                 return null;
             }
 
-            var outputBitmap = sourceBitmap.Binarize(size: 20, k: 0.1);
-            return outputBitmap.ToBitmapImage();
-        }
+            //var binaryBitmap = sourceBitmap.Binarize(size: 20, k: 0.1);
+            //return binaryBitmap.ToBitmapSource();
 
-        
+            var outputBitmapSource = sourceBitmap.FindAndShowRegionOfInterest(sourceBitmap);
+
+            return outputBitmapSource;
+        }        
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -1,8 +1,6 @@
 ﻿using System.Windows;
-using System.IO;
 using TestClient.Binarization.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
 using System.Windows.Media.Imaging;
 using dok.image.binarization.win;
 

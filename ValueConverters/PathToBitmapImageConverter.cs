@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
+using dok.image.binarization.win;
 
 namespace TestClient.Binarization.ValueConverters
 {
@@ -18,13 +18,9 @@ namespace TestClient.Binarization.ValueConverters
 
             var path = Path.GetFullPath(fileName);
 
-            var bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(path);
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.EndInit();
+            var bitmapSource = ImageUtilities.ReadImage(path, LoadMode.AnyColor);
 
-            return bitmap;
+            return bitmapSource;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
