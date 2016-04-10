@@ -16,15 +16,11 @@ namespace TestClient.Binarization.ValueConverters
                 return null;
             }
 
-            //var binaryBitmap = sourceBitmap.Binarize(size: 20, k: 0.1);
-            //return binaryBitmap.ToBitmapSource();
-
-            var outputBitmapSource = sourceBitmap.FindAndShowContours(sourceBitmap);
-
-            return outputBitmapSource;
+            var binaryBitmap = sourceBitmap.Binarize(size: 20, k: 0.1);
+            return binaryBitmap.ToBitmapSource();
         }        
 
-        public object ConvertBack(object value, Type targ5etType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException("ColorBitmapToBinaryBitmapConverter can only be used for one way conversion.");
 

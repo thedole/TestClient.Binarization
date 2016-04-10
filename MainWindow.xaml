@@ -9,8 +9,11 @@
         Title="MainWindow" Height="350" Width="525"
         Closing="Window_Closing" >
     <Window.Resources>
+        <converters:ValueConverterGroup x:Key="CropAndBinarize">
+            <converters:CropImageToRegionOfInterestConverter/>
+            <converters:ColorBitmapToBinaryBitmapConverter/>
+        </converters:ValueConverterGroup>
         <converters:PathToBitmapImageConverter x:Key="PathToBitmapConverter"/>
-        <converters:ColorBitmapToBinaryBitmapConverter x:Key="ColorToBinary"/>
     </Window.Resources>
      <Grid>
         <Grid.ColumnDefinitions>
@@ -23,7 +26,7 @@
         </Grid.RowDefinitions>
         <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ImagePaths}" x:Name="listBox" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Width="Auto"/>
         <Image Grid.Column="0" Grid.Row="1" x:Name="imageInput" Source="{Binding SelectedItem, ElementName=listBox, Converter={StaticResource PathToBitmapConverter}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" />
-        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" Source="{Binding Source, ElementName=imageInput, Converter={StaticResource ColorToBinary}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch"/>
+        <Image Grid.Column="1" Grid.Row="1" x:Name="imageOutput" Source="{Binding Source, ElementName=imageInput, Converter={StaticResource CropAndBinarize}}" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch"/>
         <Grid Grid.Column="0" Grid.Row="0" Height="100" Margin="10,10,10,10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
