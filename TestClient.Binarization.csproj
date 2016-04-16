@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="ValueConverters\ColorBitmapToBinaryBitmapConverter.cs" />
     <Compile Include="ValueConverters\CropImageToRegionOfInterestConverter.cs" />
+    <Compile Include="ValueConverters\FindAndShowLogoConverter.cs" />
     <Compile Include="ValueConverters\PathToBitmapImageConverter.cs" />
     <Compile Include="ValueConverters\ValueConverterGroup.cs" />
     <Compile Include="ViewModels\BinarizationClientViewModel.cs" />

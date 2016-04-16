@@ -11,7 +11,8 @@
     <Window.Resources>
         <converters:ValueConverterGroup x:Key="CropAndBinarize">
             <converters:CropImageToRegionOfInterestConverter/>
-            <converters:ColorBitmapToBinaryBitmapConverter/>
+            <converters:FindAndShowLogoConverter/>
+            <!--<converters:ColorBitmapToBinaryBitmapConverter/>-->
         </converters:ValueConverterGroup>
         <converters:PathToBitmapImageConverter x:Key="PathToBitmapConverter"/>
     </Window.Resources>
